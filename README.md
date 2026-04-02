@@ -74,6 +74,31 @@ Charts: Claims by City, Claims by Policy Type, Fraud Analysis Funnel (Total → 
 
 <img width="799" height="488" alt="Image" src="https://github.com/user-attachments/assets/762a63b3-3a69-4fee-844c-84fb7210160d" />
 
+📊 Key DAX Measures (Power BI)
+
+Total Claims = COUNTROWS(Healthcare_claims_Clean)
+
+Total Claimed Amount = SUM(Healthcare_claims_Clean[Claim_Amount])
+
+Total Approved Amount = SUM(Healthcare_claims_Clean[Approved_Amount])
+
+Approval Rate % = 
+DIVIDE([Total Approved Amount], [Total Claimed Amount], 0) * 100
+
+Fraud Rate % = 
+AVERAGEX(Healthcare_claims_Clean, Healthcare_claims_Clean[Fraud_Flag]) * 100
+
+Avg Days to Settle = 
+AVERAGE(Healthcare_claims_Clean[Days_To_Settle])
+
+Avg Claim Amount = 
+AVERAGE(Healthcare_claims_Clean[Claim_Amount])
+
+Approval Rate % → Helps track insurer efficiency
+Fraud Rate % → Identifies suspicious claims
+Avg Days to Settle → Measures processing delay
+Avg Claim Amount → Understands claim size trends
+
 🔍 Key Insights
 Identified high claim patterns
 Detected potential fraud cases 
